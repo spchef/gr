@@ -1,0 +1,17 @@
+version: '3'
+services:
+  db:
+    image: mongo:latest
+    container_name: db
+    networks:
+      - todonet
+  web:
+    build: ../.
+    networks:
+      - todonet
+    ports:
+     - "3000"
+networks:
+  todonet:
+    driver: bridge
+
